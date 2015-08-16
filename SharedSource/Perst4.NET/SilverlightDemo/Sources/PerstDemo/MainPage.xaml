@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="PerstDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
+	xmlns:PerstDemo="clr-namespace:PerstDemo" 
+	mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
+
+    <UserControl.Resources>
+        <PerstDemo:VisibilityBoolConverter x:Key="visibilityboolConverter"></PerstDemo:VisibilityBoolConverter>
+    </UserControl.Resources>
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="150*"></ColumnDefinition>
+                <ColumnDefinition Width="200*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Stretch"
+                   Text="Perst Silverlight CRM Demo" 
+                   FontSize="36" FontWeight="Bold"
+                   TextWrapping="Wrap"
+                   Margin="8,8,0,0">
+            </TextBlock>
+            <Button Name="bClearDB" Content="Clear" Click="ClearDBClick" Width="100" Height="24" Margin="8"
+                    Grid.Column="2" VerticalAlignment="Center">
+            </Button>
+            <Button Content="Generate Data" Click="GenerateDBClick" Width="100" Height="24" Margin="8"
+                    Grid.Column="3" VerticalAlignment="Center">
+            </Button>
+            <Grid Grid.Column="5" ShowGridLines="False">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="bClearSearch"  Content="Clear" Height="24" Width="100"  Grid.Column="0" 
+                    VerticalAlignment="Center" HorizontalAlignment="Right" Click="bClearSearch_Click"
+                     Visibility="{Binding ElementName=tbSearch, Path=IsSearch, Converter={StaticResource visibilityboolConverter}}"/>
+                <PerstDemo:AutosuggestTextBox x:Name="tbSearch" FontSize="12" BorderThickness="1"
+                 FontStyle="Italic" Margin="8,0,8,0" VerticalAlignment="Center" Grid.Column="1" 
+                 d:LayoutOverrides="Width, Height" SearchStringChanged="tbSearch_SearchChanged" Height="24">
+                </PerstDemo:AutosuggestTextBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="cdContact"/>
+                <ColumnDefinition x:Name="cdLead"/>
+                <ColumnDefinition x:Name="cdActivity"/>
+                <ColumnDefinition x:Name="cdDetail" Width="450"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <data:DataGrid Margin="0" Grid.Row="1" Name="gridContact" AutoGenerateColumns="false" RowEditEnded="DataGrid_RowEditEnded"
+                       SelectionMode="Extended" MouseEnter="DataGrid_MouseEnter" SelectionChanged="DataGrid_SelectionChanged" 
+                       CacheMode="BitmapCache" RowHeight="22">
+                <data:DataGrid.Columns>
+                    <data:DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"  CanUserSort="True" />
+                    <data:DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" CanUserSort="True" />
+                    <data:DataGridTextColumn Header="Company" Binding="{Binding Company}" CanUserSort="True" />
+                    <data:DataGridTextColumn Header="Address" Binding="{Binding Address}" CanUserSort="True" />
+                    <data:DataGridTextColumn Header="E-Mail" Binding="{Binding Email}" CanUserSort="True" />
+                    <data:DataGridTextColumn Header="Last Activity" Binding="{Binding LastActivity}" CanUserSort="True"/>
+                </data:DataGrid.Columns>
+                <data:DataGrid.Tag>
+                    ContactWidth
+                </data:DataGrid.Tag>
+            </data:DataGrid>
+            <data:DataGrid Grid.Row="1" Margin="0" Grid.Column="1" Name="gridLead" AutoGenerateColumns="False" RowEditEnded="DataGrid_RowEditEnded"
+                       SelectionMode="Extended" MouseEnter="DataGrid_MouseEnter" SelectionChanged="DataGrid_SelectionChanged"
+                       CacheMode="BitmapCache" RowHeight="22">
+                <data:DataGrid.Columns>
+                    <data:DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserSort="True" />
+                    <PerstDemo:DataGridObjectsColumn Header="Contact" Binding="{Binding Contact}" CanUserSort="False" />
+                    <data:DataGridTextColumn Header="Amount" Binding="{Binding Amount}"  CanUserSort="True" />
+                    <PerstDemo:DataGridDateTimeColumn Header="Expected Close" Binding="{Binding ExpectedClose}" CanUserSort="True" />
+                    <data:DataGridTextColumn Header="Next Step" Binding="{Binding NextStep}" CanUserSort="True" />
+                    <data:DataGridTextColumn Header="Probability" Binding="{Binding Probability}" CanUserSort="True" />
+                </data:DataGrid.Columns>
+                <data:DataGrid.Tag>
+                    LeadWidth
+                </data:DataGrid.Tag>
+            </data:DataGrid>
+            <data:DataGrid Margin="0" Grid.Row="1" Grid.Column="2" Name="gridActivity" AutoGenerateColumns="False" RowEditEnded="DataGrid_RowEditEnded"
+                       SelectionMode="Extended" MouseEnter="DataGrid_MouseEnter" SelectionChanged="DataGrid_SelectionChanged" 
+                       CacheMode="BitmapCache" RowHeight="22">
+                <data:DataGrid.Columns>
+                    <data:DataGridTextColumn Header="Subject" Binding="{Binding Subject}" CanUserSort="True" />
+                    <PerstDemo:DataGridObjectsColumn Header="Lead" Binding="{Binding Lead}" CanUserSort="False"/>
+                    <PerstDemo:DataGridEnumColumn Header="Type" Binding="{Binding ActivityType}" CanUserSort="True"/>
+                    <PerstDemo:DataGridEnumColumn Header="Status" Binding="{Binding Status}"  CanUserSort="True" />
+                    <PerstDemo:DataGridDateTimeColumn Header="Due" Binding="{Binding Due}" CanUserSort="True" />
+                    <PerstDemo:DataGridEnumColumn Header="Priority" Binding="{Binding Priority}" CanUserSort="True"/>
+                </data:DataGrid.Columns>
+                <data:DataGrid.Tag>
+                    ActivityWidth
+                </data:DataGrid.Tag>
+            </data:DataGrid>
+            <ScrollViewer Name="swDetail" Padding="8" Margin="2" Grid.Column="3" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            </ScrollViewer>
+            <TextBlock Name="tblockDetail" HorizontalAlignment="Stretch"  Text="{Binding ElementName=swDetail, Path=Content.Title}"
+                   TextWrapping="Wrap" Margin="8,0,0,0" Grid.Column="3" Grid.Row="0" 
+                   FontSize="26.667" d:LayoutOverrides="Width"/>
+            <TextBlock  HorizontalAlignment="Stretch"  Text="Activities" TextWrapping="Wrap" Grid.Column="2" Grid.Row="0" FontSize="26.667" Margin="8,0,0,0" d:LayoutOverrides="Width"/>
+            <TextBlock  HorizontalAlignment="Stretch"  Text="Leads" TextWrapping="Wrap" Grid.Column="1" Grid.Row="0" FontSize="26.667" Margin="8,0,0,0" d:LayoutOverrides="Width"/>
+            <TextBlock  HorizontalAlignment="Stretch"  Text="Contacts" TextWrapping="Wrap" Grid.Row="0" FontSize="26.667" Margin="8,0,0,0" d:LayoutOverrides="Width"/>
+            <Button x:Name="bNewContact" Content="New" HorizontalAlignment="Right" Margin="0,4,4,4" Width="60" Height="24" Grid.Row="0"
+                 Click="bNewContact_Click">
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.26"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="bNewLead" Content="New" HorizontalAlignment="Right" Margin="0,4,4,4" Width="60" Height="24" Grid.Column="1" Grid.Row="0"
+                Click="bNewLead_Click">
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.26"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="bNewActivity" Content="New" HorizontalAlignment="Right" Margin="0,4,4,4" Width="60" Height="24" Grid.Column="2" Grid.Row="0"
+                Click="bNewActivity_Click">
+                <Button.Effect>
+                    <DropShadowEffect Opacity="0.26"/>
+                </Button.Effect>
+            </Button>
+            <controls:GridSplitter HorizontalAlignment="Left" Margin="0,26,0,18" Width="5" Grid.Column="2" Grid.Row="1"/>
+            <controls:GridSplitter HorizontalAlignment="Left" Margin="0,26,0,20" Width="5" Grid.Column="1" Grid.Row="1"/>
+            <controls:GridSplitter HorizontalAlignment="Left" Margin="3,4,0,4" Width="5" Grid.Column="3" Grid.Row="1"/>
+        </Grid>
+    </Grid>
+
+</UserControl>

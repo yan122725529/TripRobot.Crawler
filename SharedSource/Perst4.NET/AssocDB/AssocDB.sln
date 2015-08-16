@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssocDB", "AssocDB.csproj", "{89FA5222-FBB9-45E8-BB48-04CD5441ABF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "tst\Library\Library.csproj", "{A7FC380D-995F-4497-ABD7-5A28EDA4DF3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital", "tst\Hospital\Hospital.csproj", "{1BB8D3A9-95F5-4D72-B426-AC26A7FCC366}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89FA5222-FBB9-45E8-BB48-04CD5441ABF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FA5222-FBB9-45E8-BB48-04CD5441ABF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FA5222-FBB9-45E8-BB48-04CD5441ABF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FA5222-FBB9-45E8-BB48-04CD5441ABF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7FC380D-995F-4497-ABD7-5A28EDA4DF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7FC380D-995F-4497-ABD7-5A28EDA4DF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7FC380D-995F-4497-ABD7-5A28EDA4DF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7FC380D-995F-4497-ABD7-5A28EDA4DF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB8D3A9-95F5-4D72-B426-AC26A7FCC366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB8D3A9-95F5-4D72-B426-AC26A7FCC366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB8D3A9-95F5-4D72-B426-AC26A7FCC366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB8D3A9-95F5-4D72-B426-AC26A7FCC366}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

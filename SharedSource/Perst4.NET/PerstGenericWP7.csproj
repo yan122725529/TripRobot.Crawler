@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{289B6E8C-FAAC-40D1-9780-F27FF94D2C9D}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PerstGenericWP7</RootNamespace>
+    <AssemblyName>PerstGenericWP7</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;USE_GENERICS;SILVERLIGHT;NET_FRAMEWORK_20;NET_FRAMEWORK_35;WP7</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.0' ">$(DefineConstants);NET_FRAMEWORK_40</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;USE_GENERICS;SILVERLIGHT;NET_FRAMEWORK_20;NET_FRAMEWORK_35;WP7</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.0' ">$(DefineConstants);NET_FRAMEWORK_40</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\BitIndex.cs" />
+    <Compile Include="src\Blob.cs" />
+    <Compile Include="src\ClassLoader.cs" />
+    <Compile Include="src\CodeGenerator.cs" />
+    <Compile Include="src\CodeGeneratorException.cs" />
+    <Compile Include="src\CompileError.cs" />
+    <Compile Include="src\CustomAllocator.cs" />
+    <Compile Include="src\CustomSerializable.cs" />
+    <Compile Include="src\CustomSerializer.cs" />
+    <Compile Include="src\Enumerable.cs" />
+    <Compile Include="src\FieldIndex.cs" />
+    <Compile Include="src\fulltext\FullTextIndex.cs" />
+    <Compile Include="src\fulltext\FullTextIndexable.cs" />
+    <Compile Include="src\fulltext\FullTextQuery.cs" />
+    <Compile Include="src\fulltext\FullTextSearchable.cs" />
+    <Compile Include="src\fulltext\FullTextSearchHelper.cs" />
+    <Compile Include="src\fulltext\FullTextSearchResult.cs" />
+    <Compile Include="src\fulltext\Occurrence.cs" />
+    <Compile Include="src\GenericIndex.cs" />
+    <Compile Include="src\Bitmap.cs" />
+    <Compile Include="src\IBidirectionalEnumerator.cs" />
+    <Compile Include="src\IFile.cs" />
+    <Compile Include="src\IFileStream.cs" />
+    <Compile Include="src\RegexIndex.cs" />
+    <Compile Include="src\impl\AltBtree.cs" />
+    <Compile Include="src\impl\AltBtreeCompoundIndex.cs" />
+    <Compile Include="src\impl\RegexIndexImpl.cs" />
+    <Compile Include="src\impl\AltBtreeFieldIndex.cs" />
+    <Compile Include="src\impl\AltBtreeMultiFieldIndex.cs" />
+    <Compile Include="src\impl\AltPersistentSet.cs" />
+    <Compile Include="src\impl\BitIndexImpl.cs" />
+    <Compile Include="src\impl\BitmapCustomAllocator.cs" />
+    <Compile Include="src\impl\BlobImpl.cs" />
+    <Compile Include="src\impl\Btree.cs" />
+    <Compile Include="src\impl\BtreeCompoundIndex.cs" />
+    <Compile Include="src\impl\BtreeFieldIndex.cs" />
+    <Compile Include="src\impl\BtreeKey.cs" />
+    <Compile Include="src\impl\BtreeMultiFieldIndex.cs" />
+    <Compile Include="src\impl\BtreePage.cs" />
+    <Compile Include="src\impl\ByteBuffer.cs" />
+    <Compile Include="src\impl\Bytes.cs" />
+    <Compile Include="src\impl\ClassDescriptor.cs" />
+    <Compile Include="src\impl\CNetMonitor.cs" />
+    <Compile Include="src\impl\CodeGeneratorImpl.cs" />
+    <Compile Include="src\impl\DefaultAllocator.cs" />
+    <Compile Include="src\impl\DefaultPersistentComparator.cs" />
+    <Compile Include="src\impl\FullTextIndexImpl.cs" />
+    <Compile Include="src\impl\GeneratedSerializer.cs" />
+    <Compile Include="src\impl\KDTree.cs" />
+    <Compile Include="src\impl\LinkImpl.cs" />
+    <Compile Include="src\impl\LRU.cs" />
+    <Compile Include="src\impl\LruObjectCache.cs" />
+    <Compile Include="src\impl\MemoryReader.cs" />
+    <Compile Include="src\impl\MultiFile.cs" />
+    <Compile Include="src\impl\ObjectHeader.cs" />
+    <Compile Include="src\impl\ObjectMap.cs" />
+    <Compile Include="src\impl\OidHashTable.cs" />
+    <Compile Include="src\impl\OSFile.cs" />
+    <Compile Include="src\impl\Page.cs" />
+    <Compile Include="src\impl\PagePool.cs" />
+    <Compile Include="src\impl\PArrayImpl.cs" />
+    <Compile Include="src\impl\PersistentHashImpl.cs" />
+    <Compile Include="src\impl\PersistentListImpl.cs" />
+    <Compile Include="src\impl\PersistentMapImpl.cs" />
+    <Compile Include="src\impl\PersistentSet.cs" />
+    <Compile Include="src\impl\PersistentStub.cs" />
+    <Compile Include="src\impl\PersistentWrapper.cs" />
+    <Compile Include="src\impl\PinWeakHashTable.cs" />
+    <Compile Include="src\impl\PTrie.cs" />
+    <Compile Include="src\impl\QueryImpl.cs" />
+    <Compile Include="src\impl\Rc4File.cs" />
+    <Compile Include="src\impl\ReflectionMultidimensinalComparator.cs" />
+    <Compile Include="src\impl\RelationImpl.cs" />
+    <Compile Include="src\impl\RndBtree.cs" />
+    <Compile Include="src\impl\RndBtreeCompoundIndex.cs" />
+    <Compile Include="src\impl\RndBtreeFieldIndex.cs" />
+    <Compile Include="src\impl\RndBtreeMultiFieldIndex.cs" />
+    <Compile Include="src\impl\Rtree.cs" />
+    <Compile Include="src\impl\RtreePage.cs" />
+    <Compile Include="src\impl\RtreeR2.cs" />
+    <Compile Include="src\impl\RtreeR2Page.cs" />
+    <Compile Include="src\impl\RtreeRn.cs" />
+    <Compile Include="src\impl\RtreeRnPage.cs" />
+    <Compile Include="src\impl\ScalableList.cs" />
+    <Compile Include="src\impl\ScalableSet.cs" />
+    <Compile Include="src\impl\StorageImpl.cs" />
+    <Compile Include="src\impl\StrongHashTable.cs" />
+    <Compile Include="src\impl\ThickFieldIndex.cs" />
+    <Compile Include="src\impl\ThickIndex.cs" />
+    <Compile Include="src\impl\TimeSeriesImpl.cs" />
+    <Compile Include="src\impl\Ttree.cs" />
+    <Compile Include="src\impl\TtreePage.cs" />
+    <Compile Include="src\impl\WeakHashTable.cs" />
+    <Compile Include="src\impl\XMLExporter.cs" />
+    <Compile Include="src\impl\XMLImporter.cs" />
+    <Compile Include="src\Index.cs" />
+    <Compile Include="src\Indexable.cs" />
+    <Compile Include="src\IPersistent.cs" />
+    <Compile Include="src\IPersistentList.cs" />
+    <Compile Include="src\IPersistentMap.cs" />
+    <Compile Include="src\IResource.cs" />
+    <Compile Include="src\ISelfSerializable.cs" />
+    <Compile Include="src\ISet.cs" />
+    <Compile Include="src\ITable.cs" />
+    <Compile Include="src\JSQLArithmeticException.cs" />
+    <Compile Include="src\JSQLNoSuchFieldException.cs" />
+    <Compile Include="src\JSQLNullPointerException.cs" />
+    <Compile Include="src\JSQLRuntimeException.cs" />
+    <Compile Include="src\Key.cs" />
+    <Compile Include="src\L2List.cs" />
+    <Compile Include="src\L2ListElem.cs" />
+    <Compile Include="src\Link.cs" />
+    <Compile Include="src\MemoryUsage.cs" />
+    <Compile Include="src\MultidimensionalComparator.cs" />
+    <Compile Include="src\MultidimensionalIndex.cs" />
+    <Compile Include="src\NullFile.cs" />
+    <Compile Include="src\PArray.cs" />
+    <Compile Include="src\PatriciaTrie.cs" />
+    <Compile Include="src\PatriciaTrieKey.cs" />
+    <Compile Include="src\Persistent.cs" />
+    <Compile Include="src\PersistentCollection.cs" />
+    <Compile Include="src\PersistentComparator.cs" />
+    <Compile Include="src\PersistentEnumerator.cs" />
+    <Compile Include="src\PersistentResource.cs" />
+    <Compile Include="src\PersistentString.cs" />
+    <Compile Include="src\Projection.cs" />
+    <Compile Include="src\Query.cs" />
+    <Compile Include="src\QueryProfiler.cs" />
+    <Compile Include="src\Rectangle.cs" />
+    <Compile Include="src\RectangleR2.cs" />
+    <Compile Include="src\RectangleRn.cs" />
+    <Compile Include="src\PointRn.cs" />
+    <Compile Include="src\Relation.cs" />
+    <Compile Include="src\Resolver.cs" />
+    <Compile Include="src\SilverlightStubs.cs" />
+    <Compile Include="src\SmallDictionary.cs" />
+    <Compile Include="src\SortedCollection.cs" />
+    <Compile Include="src\SpatialIndex.cs" />
+    <Compile Include="src\SpatialIndexRn.cs" />
+    <Compile Include="src\SpatialIndexR2.cs" />
+    <Compile Include="src\Storage.cs" />
+    <Compile Include="src\StorageError.cs" />
+    <Compile Include="src\StorageFactory.cs" />
+    <Compile Include="src\StorageListener.cs" />
+    <Compile Include="src\StreamFile.cs" />
+    <Compile Include="src\TimeSeries.cs" />
+    <Compile Include="src\Version.cs" />
+    <Compile Include="src\VersionHistory.cs" />
+    <Compile Include="src\XMLImportException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

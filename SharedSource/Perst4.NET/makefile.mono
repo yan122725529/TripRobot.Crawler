@@ -1,0 +1,456 @@
+DEFS=SUPPORT_RAW_TYPE
+LIBRARY=bin/PerstNet10.dll
+
+CSC_FLAGS=-debug
+CSC=gmcs $(CSC_FLAGS) -define:$(DEFS)
+
+EXAMPLES=tst/Simple/bin/debug/Simple.exe tst/IpCountry/bin/debug/IpCountry.exe tst/Guess/bin/debug/Guess.exe tst/PropGuess/bin/debug/Guess.exe tst/TestBackup/bin/debug/TestBackup.exe tst/TestBit/bin/debug/TestBit.exe tst/TestBitmap/bin/debug/TestBitmap.exe tst/TestBlob/bin/debug/TestBlob.exe tst/TestAlloc/bin/debug/TestAlloc.exe tst/TestLeak/bin/debug/TestLeak.exe tst/TestCompoundIndex/bin/debug/TestCompoundIndex.exe tst/TestConcur/bin/debug/TestConcur.exe tst/TestServer/bin/debug/TestServer.exe tst/TestEnumerator/bin/debug/TestEnumerator.exe tst/TestGC/bin/debug/TestGC.exe tst/TestIndex/bin/debug/TestIndex.exe tst/TestPerf/bin/debug/TestPerf.exe tst/TestProp/bin/debug/TestProp.exe tst/TestKDTree/bin/debug/TestKDTree.exe tst/TestKDTree2/bin/debug/TestKDTree2.exe tst/TestMap/bin/debug/TestMap.exe tst/TestIndex2/bin/debug/TestIndex2.exe tst/TestLink/bin/debug/TestLink.exe tst/TestList/bin/debug/TestList.exe  tst/TestList2/bin/debug/TestList2.exe tst/TestR2/bin/debug/TestR2.exe tst/TestRaw/bin/debug/TestRaw.exe tst/TestRtree/bin/debug/TestRtree.exe tst/TestSOD/bin/debug/TestSOD.exe tst/TestSSD/bin/debug/TestSSD.exe tst/TestTimeSeries/bin/debug/TestTimeSeries.exe tst/TestTtree/bin/debug/TestTtree.exe tst/TestXML/bin/debug/TestXML.exe tst/TransparentGuess/bin/debug/Guess.exe tst/TestReplic/bin/debug/TestReplic.exe tst/TestReplic2/bin/debug/TestReplic2.exe tst/TestJSQL/bin/debug/TestJSQL.exe tst/JsqlSSD/bin/debug/JsqlSSD.exe tst/TestRndIndex/bin/debug/TestRndIndex.exe tst/TestFullTextIndex/bin/debug/TestFullTextIndex.exe tst/SearchEngine/bin/debug/SearchEngine.exe tst/TestDbServer/bin/debug/TestDbServer.exe tst/TestJsqlJoin/bin/debug/TestJsqlJoin.exe tst/TestCodeGenerator/bin/debug/TestCodeGenerator.exe tst/TestAutoIndices/bin/debug/TestAutoIndices.exe tst/TestLockUpgrade/bin/debug/TestLockUpgrade.exe tst/TestRegex/bin/debug/TestRegex.exe
+
+
+SOURCES=src/*.cs src/impl/*.cs src/fulltext/*.cs
+
+
+all: library examples
+
+library: $(LIBRARY)
+
+$(LIBRARY): $(SOURCES)
+	-mkdir -p  bin
+	$(CSC) -target:library -out:$(LIBRARY) $(SOURCES)
+
+examples: $(EXAMPLES)
+
+tst/IpCountry/bin/debug/IpCountry.exe: tst/IpCountry/IpCountry.cs $(LIBRARY)
+	-mkdir -p  tst/IpCountry/bin/debug
+	cp $(LIBRARY) tst/IpCountry/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/IpCountry/bin/debug/IpCountry.exe tst/IpCountry/IpCountry.cs
+
+tst/Guess/bin/debug/Guess.exe: tst/Guess/Guess.cs $(LIBRARY)
+	-mkdir -p  tst/Guess/bin/debug
+	cp $(LIBRARY) tst/Guess/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/Guess/bin/debug/Guess.exe tst/Guess/Guess.cs
+
+tst/PropGuess/bin/debug/Guess.exe: tst/PropGuess/Guess.cs $(LIBRARY)
+	-mkdir -p  tst/PropGuess/bin/debug
+	cp $(LIBRARY) tst/PropGuess/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/PropGuess/bin/debug/Guess.exe tst/PropGuess/Guess.cs
+
+tst/TransparentGuess/bin/debug/Guess.exe: tst/TransparentGuess/Guess.cs $(LIBRARY)
+	-mkdir -p  tst/TransparentGuess/bin/debug
+	cp $(LIBRARY) tst/TransparentGuess/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TransparentGuess/bin/debug/Guess.exe tst/TransparentGuess/Guess.cs
+
+tst/TestBackup/bin/debug/TestBackup.exe: tst/TestBackup/TestBackup.cs $(LIBRARY)
+	-mkdir -p  tst/TestBackup/bin/debug
+	cp $(LIBRARY) tst/TestBackup/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestBackup/bin/debug/TestBackup.exe tst/TestBackup/TestBackup.cs
+
+tst/TestBit/bin/debug/TestBit.exe: tst/TestBit/TestBit.cs $(LIBRARY)
+	-mkdir -p  tst/TestBit/bin/debug
+	cp $(LIBRARY) tst/TestBit/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestBit/bin/debug/TestBit.exe tst/TestBit/TestBit.cs
+
+tst/TestBitmap/bin/debug/TestBitmap.exe: tst/TestBitmap/TestBitmap.cs $(LIBRARY)
+	-mkdir -p  tst/TestBitmap/bin/debug
+	cp $(LIBRARY) tst/TestBitmap/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestBitmap/bin/debug/TestBitmap.exe tst/TestBitmap/TestBitmap.cs
+
+tst/TestBlob/bin/debug/TestBlob.exe: tst/TestBlob/TestBlob.cs $(LIBRARY)
+	-mkdir -p  tst/TestBlob/bin/debug
+	cp $(LIBRARY) tst/TestBlob/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestBlob/bin/debug/TestBlob.exe tst/TestBlob/TestBlob.cs
+
+tst/TestFullTextIndex/bin/debug/TestFullTextIndex.exe: tst/TestFullTextIndex/TestFullTextIndex.cs $(LIBRARY)
+	-mkdir -p  tst/TestFullTextIndex/bin/debug
+	cp $(LIBRARY) tst/TestFullTextIndex/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestFullTextIndex/bin/debug/TestFullTextIndex.exe tst/TestFullTextIndex/TestFullTextIndex.cs
+
+tst/SearchEngine/bin/debug/SearchEngine.exe: tst/SearchEngine/SearchEngine.cs $(LIBRARY)
+	-mkdir -p  tst/SearchEngine/bin/debug
+	cp $(LIBRARY) tst/SearchEngine/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/SearchEngine/bin/debug/SearchEngine.exe tst/SearchEngine/SearchEngine.cs
+
+tst/TestAlloc/bin/debug/TestAlloc.exe: tst/TestAlloc/TestAlloc.cs $(LIBRARY)
+	-mkdir -p  tst/TestAlloc/bin/debug
+	cp $(LIBRARY) tst/TestAlloc/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestAlloc/bin/debug/TestAlloc.exe tst/TestAlloc/TestAlloc.cs
+
+tst/TestLeak/bin/debug/TestLeak.exe: tst/TestLeak/TestLeak.cs $(LIBRARY)
+	-mkdir -p  tst/TestLeak/bin/debug
+	cp $(LIBRARY) tst/TestLeak/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestLeak/bin/debug/TestLeak.exe tst/TestLeak/TestLeak.cs
+
+tst/TestCompoundIndex/bin/debug/TestCompoundIndex.exe: tst/TestCompoundIndex/TestCompoundIndex.cs $(LIBRARY)
+	-mkdir -p  tst/TestCompoundIndex/bin/debug
+	cp $(LIBRARY) tst/TestCompoundIndex/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestCompoundIndex/bin/debug/TestCompoundIndex.exe tst/TestCompoundIndex/TestCompoundIndex.cs
+
+tst/TestConcur/bin/debug/TestConcur.exe: tst/TestConcur/TestConcur.cs $(LIBRARY)
+	-mkdir -p  tst/TestConcur/bin/debug
+	cp $(LIBRARY) tst/TestConcur/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestConcur/bin/debug/TestConcur.exe tst/TestConcur/TestConcur.cs
+
+tst/TestLockUpgrade/bin/debug/TestLockUpgrade.exe: tst/TestLockUpgrade/TestLockUpgrade.cs $(LIBRARY)
+	-mkdir -p  tst/TestLockUpgrade/bin/debug
+	cp $(LIBRARY) tst/TestLockUpgrade/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestLockUpgrade/bin/debug/TestLockUpgrade.exe tst/TestLockUpgrade/TestLockUpgrade.cs
+
+tst/TestServer/bin/debug/TestServer.exe: tst/TestServer/TestServer.cs $(LIBRARY)
+	-mkdir -p  tst/TestServer/bin/debug
+	cp $(LIBRARY) tst/TestServer/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestServer/bin/debug/TestServer.exe tst/TestServer/TestServer.cs
+
+tst/TestDbServer/bin/debug/TestDbServer.exe: tst/TestDbServer/TestDbServer.cs $(LIBRARY)
+	-mkdir -p  tst/TestDbServer/bin/debug
+	cp $(LIBRARY) tst/TestDbServer/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestDbServer/bin/debug/TestDbServer.exe tst/TestDbServer/TestDbServer.cs
+
+tst/TestEnumerator/bin/debug/TestEnumerator.exe: tst/TestEnumerator/TestEnumerator.cs $(LIBRARY)
+	-mkdir -p  tst/TestEnumerator/bin/debug
+	cp $(LIBRARY) tst/TestEnumerator/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestEnumerator/bin/debug/TestEnumerator.exe tst/TestEnumerator/TestEnumerator.cs
+
+tst/TestGC/bin/debug/TestGC.exe: tst/TestGC/TestGC.cs $(LIBRARY)
+	-mkdir -p  tst/TestGC/bin/debug
+	cp $(LIBRARY) tst/TestGC/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestGC/bin/debug/TestGC.exe tst/TestGC/TestGC.cs
+
+tst/Simple/bin/debug/Simple.exe: tst/Simple/Simple.cs $(LIBRARY)
+	-mkdir -p  tst/Simple/bin/debug
+	cp $(LIBRARY) tst/Simple/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/Simple/bin/debug/Simple.exe tst/Simple/Simple.cs
+
+tst/TestIndex/bin/debug/TestIndex.exe: tst/TestIndex/TestIndex.cs $(LIBRARY)
+	-mkdir -p  tst/TestIndex/bin/debug
+	cp $(LIBRARY) tst/TestIndex/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestIndex/bin/debug/TestIndex.exe tst/TestIndex/TestIndex.cs
+
+tst/TestRegex/bin/debug/TestRegex.exe: tst/TestRegex/TestRegex.cs $(LIBRARY)
+	-mkdir -p  tst/TestRegex/bin/debug
+	cp $(LIBRARY) tst/TestRegex/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestRegex/bin/debug/TestRegex.exe tst/TestRegex/TestRegex.cs
+
+tst/TestPerf/bin/debug/TestPerf.exe: tst/TestPerf/TestPerf.cs $(LIBRARY)
+	-mkdir -p  tst/TestPerf/bin/debug
+	cp $(LIBRARY) tst/TestPerf/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestPerf/bin/debug/TestPerf.exe tst/TestPerf/TestPerf.cs
+
+tst/TestProp/bin/debug/TestProp.exe: tst/TestProp/TestProp.cs $(LIBRARY)
+	-mkdir -p  tst/TestProp/bin/debug
+	cp $(LIBRARY) tst/TestProp/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestProp/bin/debug/TestProp.exe tst/TestProp/TestProp.cs
+
+tst/TestIndexCE/bin/debug/TestIndexCE.exe: tst/TestIndexCE/TestIndexCE.cs $(LIBRARY)
+	-mkdir -p  tst/TestIndexCE/bin/debug
+	cp $(LIBRARY) tst/TestIndexCE/bin/debug
+	$(CSC) /target:winexe -r:$(LIBRARY) -r:"$(WINCE_HOME)/System.Drawing.dll" -r:"$(WINCE_HOME)/System.Windows.Forms.dll" -out:tst/TestIndexCE/bin/debug/TestIndexCE.exe tst/TestIndexCE/TestIndexCE.cs
+
+tst/TestKDTree/bin/debug/TestKDTree.exe: tst/TestKDTree/TestKDTree.cs $(LIBRARY)
+	-mkdir -p  tst/TestKDTree/bin/debug
+	cp $(LIBRARY) tst/TestKDTree/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestKDTree/bin/debug/TestKDTree.exe tst/TestKDTree/TestKDTree.cs
+
+tst/TestKDTree2/bin/debug/TestKDTree2.exe: tst/TestKDTree2/TestKDTree2.cs $(LIBRARY)
+	-mkdir -p  tst/TestKDTree2/bin/debug
+	cp $(LIBRARY) tst/TestKDTree2/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestKDTree2/bin/debug/TestKDTree2.exe tst/TestKDTree2/TestKDTree2.cs
+
+tst/TestMap/bin/debug/TestMap.exe: tst/TestMap/TestMap.cs $(LIBRARY)
+	-mkdir -p  tst/TestMap/bin/debug
+	cp $(LIBRARY) tst/TestMap/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestMap/bin/debug/TestMap.exe tst/TestMap/TestMap.cs
+
+tst/TestIndex2/bin/debug/TestIndex2.exe: tst/TestIndex2/TestIndex2.cs $(LIBRARY)
+	-mkdir -p  tst/TestIndex2/bin/debug
+	cp $(LIBRARY) tst/TestIndex2/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestIndex2/bin/debug/TestIndex2.exe tst/TestIndex2/TestIndex2.cs
+
+tst/TestLink/bin/debug/TestLink.exe: tst/TestLink/TestLink.cs $(LIBRARY)
+	-mkdir -p  tst/TestLink/bin/debug
+	cp $(LIBRARY) tst/TestLink/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestLink/bin/debug/TestLink.exe tst/TestLink/TestLink.cs
+
+tst/TestList2/bin/debug/TestList2.exe: tst/TestList2/TestList2.cs $(LIBRARY)
+	-mkdir -p  tst/TestList2/bin/debug
+	cp $(LIBRARY) tst/TestList2/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestList2/bin/debug/TestList2.exe tst/TestList2/TestList2.cs
+
+tst/TestRndIndex/bin/debug/TestRndIndex.exe: tst/TestRndIndex/TestRndIndex.cs $(LIBRARY)
+	-mkdir -p  tst/TestRndIndex/bin/debug
+	cp $(LIBRARY) tst/TestRndIndex/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestRndIndex/bin/debug/TestRndIndex.exe tst/TestRndIndex/TestRndIndex.cs
+
+tst/TestList/bin/debug/TestList.exe: tst/TestList/TestList.cs $(LIBRARY)
+	-mkdir -p  tst/TestList/bin/debug
+	cp $(LIBRARY) tst/TestList/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestList/bin/debug/TestList.exe tst/TestList/TestList.cs
+
+tst/TestR2/bin/debug/TestR2.exe: tst/TestR2/TestR2.cs $(LIBRARY)
+	-mkdir -p  tst/TestR2/bin/debug
+	cp $(LIBRARY) tst/TestR2/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestR2/bin/debug/TestR2.exe tst/TestR2/TestR2.cs
+
+tst/TestRaw/bin/debug/TestRaw.exe: tst/TestRaw/TestRaw.cs $(LIBRARY)
+	-mkdir -p  tst/TestRaw/bin/debug
+	cp $(LIBRARY) tst/TestRaw/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestRaw/bin/debug/TestRaw.exe tst/TestRaw/TestRaw.cs
+
+tst/TestRtree/bin/debug/TestRtree.exe: tst/TestRtree/TestRtree.cs $(LIBRARY)
+	-mkdir -p  tst/TestRtree/bin/debug
+	cp $(LIBRARY) tst/TestRtree/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestRtree/bin/debug/TestRtree.exe tst/TestRtree/TestRtree.cs
+
+tst/TestSOD/bin/debug/TestSOD.exe: tst/TestSOD/TestSOD.cs $(LIBRARY)
+	-mkdir -p  tst/TestSOD/bin/debug
+	cp $(LIBRARY) tst/TestSOD/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestSOD/bin/debug/TestSOD.exe tst/TestSOD/TestSOD.cs
+
+tst/TestSSD/bin/debug/TestSSD.exe: tst/TestSSD/TestSSD.cs $(LIBRARY)
+	-mkdir -p  tst/TestSSD/bin/debug
+	cp $(LIBRARY) tst/TestSSD/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestSSD/bin/debug/TestSSD.exe tst/TestSSD/TestSSD.cs
+
+tst/JsqlSSD/bin/debug/JsqlSSD.exe: tst/JsqlSSD/JsqlSSD.cs $(LIBRARY)
+	-mkdir -p  tst/JsqlSSD/bin/debug
+	cp $(LIBRARY) tst/JsqlSSD/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/JsqlSSD/bin/debug/JsqlSSD.exe tst/JsqlSSD/JsqlSSD.cs
+
+tst/TestTimeSeries/bin/debug/TestTimeSeries.exe: tst/TestTimeSeries/TestTimeSeries.cs $(LIBRARY)
+	-mkdir -p  tst/TestTimeSeries/bin/debug
+	cp $(LIBRARY) tst/TestTimeSeries/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestTimeSeries/bin/debug/TestTimeSeries.exe tst/TestTimeSeries/TestTimeSeries.cs
+
+tst/TestTtree/bin/debug/TestTtree.exe: tst/TestTtree/TestTtree.cs $(LIBRARY)
+	-mkdir -p  tst/TestTtree/bin/debug
+	cp $(LIBRARY) tst/TestTtree/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestTtree/bin/debug/TestTtree.exe tst/TestTtree/TestTtree.cs
+
+tst/TestXML/bin/debug/TestXML.exe: tst/TestXML/TestXML.cs $(LIBRARY)
+	-mkdir -p  tst/TestXML/bin/debug
+	cp $(LIBRARY) tst/TestXML/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestXML/bin/debug/TestXML.exe tst/TestXML/TestXML.cs
+
+tst/TestReplic/bin/debug/TestReplic.exe: tst/TestReplic/TestReplic.cs $(LIBRARY)
+	-mkdir -p  tst/TestReplic/bin/debug
+	cp $(LIBRARY) tst/TestReplic/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestReplic/bin/debug/TestReplic.exe tst/TestReplic/TestReplic.cs
+
+tst/TestReplic2/bin/debug/TestReplic2.exe: tst/TestReplic2/TestReplic2.cs $(LIBRARY)
+	-mkdir -p  tst/TestReplic2/bin/debug
+	cp $(LIBRARY) tst/TestReplic2/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestReplic2/bin/debug/TestReplic2.exe tst/TestReplic2/TestReplic2.cs
+
+tst/TestJSQL/bin/debug/TestJSQL.exe: tst/TestJSQL/TestJSQL.cs $(LIBRARY)
+	-mkdir -p  tst/TestJSQL/bin/debug
+	cp $(LIBRARY) tst/TestJSQL/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestJSQL/bin/debug/TestJSQL.exe tst/TestJSQL/TestJSQL.cs
+
+tst/TestJsqlJoin/bin/debug/TestJsqlJoin.exe: tst/TestJsqlJoin/TestJsqlJoin.cs $(LIBRARY)
+	-mkdir -p  tst/TestJsqlJoin/bin/debug
+	cp $(LIBRARY) tst/TestJsqlJoin/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestJsqlJoin/bin/debug/TestJsqlJoin.exe tst/TestJsqlJoin/TestJsqlJoin.cs
+
+tst/TestCodeGenerator/bin/debug/TestCodeGenerator.exe: tst/TestCodeGenerator/TestCodeGenerator.cs $(LIBRARY)
+	-mkdir -p  tst/TestCodeGenerator/bin/debug
+	cp $(LIBRARY) tst/TestCodeGenerator/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestCodeGenerator/bin/debug/TestCodeGenerator.exe tst/TestCodeGenerator/TestCodeGenerator.cs
+
+tst/TestAutoIndices/bin/debug/TestAutoIndices.exe: tst/TestAutoIndices/TestAutoIndices.cs $(LIBRARY)
+	-mkdir -p  tst/TestAutoIndices/bin/debug
+	cp $(LIBRARY) tst/TestAutoIndices/bin/debug
+	$(CSC) -r:$(LIBRARY) -out:tst/TestAutoIndices/bin/debug/TestAutoIndices.exe tst/TestAutoIndices/TestAutoIndices.cs
+
+clean:
+	-rm -fr obj
+	-rm -fr bin
+	-rm -fr tst/Guess/obj
+	-rm -fr tst/Guess/bin
+	-rm -fr tst/TransparentGuess/obj
+	-rm -fr tst/TransparentGuess/bin
+	-rm -fr tst/PropGuess/obj
+	-rm -fr tst/PropGuess/bin
+	-rm -fr tst/Simple/obj
+	-rm -fr tst/Simple/bin
+	-rm -fr tst/TestIndex/obj
+	-rm -fr tst/TestIndex/bin
+	-rm -fr tst/TestRegex/obj
+	-rm -fr tst/TestRegex/bin
+	-rm -fr tst/TestPerf/obj
+	-rm -fr tst/TestPerf/bin
+	-rm -fr tst/TestProp/obj
+	-rm -fr tst/TestProp/bin
+	-rm -fr tst/TestKDTree/obj
+	-rm -fr tst/TestKDTree/bin
+	-rm -fr tst/TestKDTree2/obj
+	-rm -fr tst/TestKDTree2/bin
+	-rm -fr tst/TestMap/obj
+	-rm -fr tst/TestMap/bin
+	-rm -fr tst/TestIndex2/obj
+	-rm -fr tst/TestIndex2/bin
+	-rm -fr tst/TestLink/obj
+	-rm -fr tst/TestLink/bin
+	-rm -fr tst/TestLinq/obj
+	-rm -fr tst/TestLinq/bin
+	-rm -fr tst/TestList/obj
+	-rm -fr tst/TestList/bin
+	-rm -fr tst/TestList2/obj
+	-rm -fr tst/TestList2/bin
+	-rm -fr tst/TestRndIndex/obj
+	-rm -fr tst/TestRndIndex/bin
+	-rm -fr tst/TestGC/obj
+	-rm -fr tst/TestGC/bin
+	-rm -fr tst/TestConcur/obj
+	-rm -fr tst/TestConcur/bin
+	-rm -fr tst/TestLockUpgrade/obj
+	-rm -fr tst/TestLockUpgrade/bin
+	-rm -fr tst/TestServer/obj
+	-rm -fr tst/TestServer/bin
+	-rm -fr tst/TestDbServer/obj
+	-rm -fr tst/TestDbServer/bin
+	-rm -fr tst/TestRtree/obj
+	-rm -fr tst/TestRtree/bin
+	-rm -fr tst/TestR2/obj
+	-rm -fr tst/TestR2/bin
+	-rm -fr tst/TestTtree/obj
+	-rm -fr tst/TestTtree/bin
+	-rm -fr tst/TestXML/obj
+	-rm -fr tst/TestXML/bin
+	-rm -fr tst/TestBackup/obj
+	-rm -fr tst/TestBackup/bin
+	-rm -fr tst/TestRaw/obj
+	-rm -fr tst/TestRaw/bin
+	-rm -fr tst/TestSSD/bin
+	-rm -fr tst/TestSSD/obj
+	-rm -fr tst/JsqlSSD/bin
+	-rm -fr tst/JsqlSSD/obj
+	-rm -fr tst/TestSOD/bin
+	-rm -fr tst/TestSOD/obj
+	-rm -fr tst/TestEnumerator/obj
+	-rm -fr tst/TestEnumerator/bin
+	-rm -fr tst/TestCompoundIndex/obj
+	-rm -fr tst/TestCompoundIndex/bin
+	-rm -fr tst/TestBlob/obj
+	-rm -fr tst/TestBlob/bin
+	-rm -fr tst/TestFullTextIndex/obj
+	-rm -fr tst/TestFullTextIndex/bin
+	-rm -fr tst/SearchEngine/obj
+	-rm -fr tst/SearchEngine/bin
+	-rm -fr tst/TestAlloc/obj
+	-rm -fr tst/TestAlloc/bin
+	-rm -fr tst/TestLeak/obj
+	-rm -fr tst/TestLeak/bin
+	-rm -fr tst/TestBit/obj
+	-rm -fr tst/TestBit/bin
+	-rm -fr tst/TestBitmap/obj
+	-rm -fr tst/TestBitmap/bin
+	-rm -fr tst/TestReplic/obj
+	-rm -fr tst/TestReplic/bin
+	-rm -fr tst/TestReplic2/obj
+	-rm -fr tst/TestReplic2/bin
+	-rm -fr tst/TestTimeSeries/obj
+	-rm -fr tst/TestTimeSeries/bin
+	-rm -fr tst/IpCountry/obj
+	-rm -fr tst/IpCountry/bin
+	-rm -fr tst/TestJSQL/bin
+	-rm -fr tst/TestJSQL/obj
+	-rm -fr tst/TestJsqlJoin/bin
+	-rm -fr tst/TestJsqlJoin/obj
+	-rm -fr tst/TestCodeGenerator/bin
+	-rm -fr tst/TestCodeGenerator/obj
+	-rm -fr tst/TestAutoIndices/bin
+	-rm -fr tst/TestAutoIndices/obj
+	-rm -fr Rdf/bin
+	-rm -fr Rdf/obj
+	-rm -fr Rdf/XmlServer/bin
+	-rm -fr Rdf/XmlServer/obj
+	-rm -f Rdf/samples/*.dbs
+	-rm -f tst/IpCountry/*.dbs
+	-rm -f *.dbs
+	-rm -f *.xml
+	-rm -f *.suo
+	-rm -f *.ncb
+
+zip: clean
+	cd .. ;	rm -f perstnet.zip ; zip -r perstnet.zip Perst.NET
+
+
+runtests: $(LIBRARY)
+	-rm -f *.dbs *.map
+	mono tst/Simple/bin/debug/Simple.exe
+	-rm -f *.dbs
+	mono tst/TestPerf/bin/debug/TestPerf.exe
+	-rm -f *.dbs
+	mono tst/TestPerf/bin/debug/TestPerf.exe inmemory
+	-rm -f *.dbs
+	mono tst/TestRegex/bin/debug/TestRegex.exe
+	-rm -f *.dbs
+	mono tst/TestIndex/bin/debug/TestIndex.exe
+	-rm -f *.dbs
+	mono tst/TestIndex/bin/debug/TestIndex.exe altbtree
+	-rm -f *.dbs
+	mono tst/TestIndex/bin/debug/TestIndex.exe altbtree serializable
+	-rm -f *.dbs
+	mono tst/TestIndex/bin/debug/TestIndex.exe inmemory
+	-rm -f *.dbs
+	mono tst/TestIndex/bin/debug/TestIndex.exe zip
+	-rm -f *.dbs *.map
+	mono tst/TestIndex/bin/debug/TestIndex.exe crypt
+	-rm -f *.dbs *.map
+	mono tst/TestIndex/bin/debug/TestIndex.exe zip crypt
+	mono tst/TestIndex/bin/debug/TestIndex.exe zip crypt
+	-rm -f *.dbs
+	mono tst/TestKDTree/bin/debug/TestKDTree.exe
+	mono tst/TestKDTree2/bin/debug/TestKDTree2.exe
+	-rm -f *.dbs
+	mono tst/TestMap/bin/debug/TestMap.exe
+	-rm -f *.dbs
+	mono tst/TestMap/bin/debug/TestMap.exe 100
+	mono tst/TestIndex2/bin/debug/TestIndex2.exe
+	mono tst/TestEnumerator/bin/debug/TestEnumerator.exe
+	-rm -f *.dbs
+	mono tst/TestEnumerator/bin/debug/TestEnumerator.exe altbtree
+	mono tst/TestCompoundIndex/bin/debug/TestCompoundIndex.exe
+	mono tst/TestRtree/bin/debug/TestRtree.exe
+	mono tst/TestR2/bin/debug/TestR2.exe
+	mono tst/TestTtree/bin/debug/TestTtree.exe
+	mono tst/TestRaw/bin/debug/TestRaw.exe
+	mono tst/TestRaw/bin/debug/TestRaw.exe
+	mono tst/TestGC/bin/debug/TestGC.exe
+	mono tst/TestGC/bin/debug/TestGC.exe background
+	mono tst/TestGC/bin/debug/TestGC.exe background altbtree
+	mono tst/TestConcur/bin/debug/TestConcur.exe
+	mono tst/TestConcur/bin/debug/TestConcur.exe pinned
+	mono tst/TestLockUpgrade/bin/debug/TestLockUpgrade.exe
+	mono tst/TestLockUpgrade/bin/debug/TestLockUpgrade.exe pinned
+	mono tst/TestServer/bin/debug/TestServer.exe
+	mono tst/TestDbServer/bin/debug/TestDbServer.exe
+	mono tst/TestXML/bin/debug/TestXML.exe
+	mono tst/TestJSQL/bin/debug/TestJSQL.exe
+	mono tst/TestJsqlJoin/bin/debug/TestJsqlJoin.exe
+	mono tst/TestJsqlJoin/bin/debug/TestJsqlJoin.exe
+	mono tst/TestCodeGenerator/bin/debug/TestCodeGenerator.exe
+	mono tst/TestAutoIndices/bin/debug/TestAutoIndices.exe
+	mono tst/TestBackup/bin/debug/TestBackup.exe
+	mono tst/TestBlob/bin/debug/TestBlob.exe
+	mono tst/TestBlob/bin/debug/TestBlob.exe
+	-rm -f *.dbs
+	mono tst/TestBlob/bin/debug/TestBlob.exe crypt
+	mono tst/TestBlob/bin/debug/TestBlob.exe crypt
+	-rm -f *.dbs *.map
+	mono tst/TestBlob/bin/debug/TestBlob.exe zip crypt
+	mono tst/TestBlob/bin/debug/TestBlob.exe zip crypt
+	mono tst/TestAlloc/bin/debug/TestAlloc.exe
+	mono tst/TestAlloc/bin/debug/TestAlloc.exe
+	mono tst/TestAlloc/bin/debug/TestAlloc.exe
+	mono tst/TestLeak/bin/debug/TestLeak.exe
+	mono tst/TestTimeSeries/bin/debug/TestTimeSeries.exe
+	mono tst/TestBit/bin/debug/TestBit.exe
+	mono tst/TestBitmap/bin/debug/TestBitmap.exe
+	mono tst/TestList/bin/debug/TestList.exe
+	mono tst/TestList2/bin/debug/TestList2.exe
+	mono tst/TestRndIndex/bin/debug/TestRndIndex.exe
+	mono tst/TestReplic/bin/debug/TestReplic.exe master & mono tst/TestReplic/bin/debug/TestReplic.exe slave
+	mono tst/TestFullTextIndex/bin/debug/TestFullTextIndex.exe
+	mono tst/TestFullTextIndex/bin/debug/TestFullTextIndex.exe
+	mono tst/TestFullTextIndex/bin/debug/TestFullTextIndex.exe reload
+	rm -f *.dbs

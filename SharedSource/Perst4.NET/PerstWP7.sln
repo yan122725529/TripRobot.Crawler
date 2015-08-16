@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerstWP7", "PerstWP7.csproj", "{289B6E8C-FAAC-40D1-9780-F27FF94D2C9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLinqWP7", "tst\TestLinqWP7\TestLinqWP7.csproj", "{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289B6E8C-FAAC-40D1-9780-F27FF94D2C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289B6E8C-FAAC-40D1-9780-F27FF94D2C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289B6E8C-FAAC-40D1-9780-F27FF94D2C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289B6E8C-FAAC-40D1-9780-F27FF94D2C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F118BE74-A9B2-4FE1-9B92-BFFCE7AE18A9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

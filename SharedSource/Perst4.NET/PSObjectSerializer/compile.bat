@@ -1,0 +1,1 @@
+csc /target:library  /debug /out:"..\bin\PSObjectSerializer.dll" /r:"..\bin\PerstNet20.dll" /r:"C:\Program Files\Reference Assemblies\Microsoft\WindowsPowerShell\v1.0\System.Management.Automation.dll" PSObjectSerializer.cs

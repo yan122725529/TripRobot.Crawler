@@ -51,7 +51,12 @@
     <Compile Include="PerstVisitedQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SharedSource\Perst4.NET\Perst.NET.csproj">
+      <Project>{1ff2e6ae-b540-4ea9-bd18-5f077ee61291}</Project>
+      <Name>Perst.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

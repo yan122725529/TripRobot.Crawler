@@ -6,17 +6,21 @@ namespace TripRobot.Crawler.Interface
     /// <summary>
     ///     Todo队列抽象
     /// </summary>
-    public interface ITodoQueue : IQueue
+    public interface  ITodoQueue<T> where T:new ()
     {
         /// <summary>
         ///     获取种子Url
         /// </summary>
         /// <returns></returns>
-        IList<UrlInfo> GetSeedUrl();
+        IList<string> GetSeedUrl();
 
         /// <summary>
         /// 获得下一个Url
         /// </summary>
-        void MoveNext();
+        T GetNext();
+
+        void Add(string urlString);
+        void Remove(string urlString);
+        T GetEntity(string Md5Key);
     }
 }

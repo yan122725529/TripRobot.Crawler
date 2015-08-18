@@ -9,7 +9,7 @@ namespace TripRobot.Crawler.Interface
     /// <summary>
     /// 已完成队列抽象
     /// </summary>
-    public interface IVisitedQueue:IQueue
+    public interface IVisitedQueue
     {
         /// <summary>
         /// URL 是否存在

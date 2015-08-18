@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{332EBA91-90FD-45EE-BFAF-8BE85A0E58B3}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{CBF199E2-E585-4526-A12C-1E80C2BEB82E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TripRobot.Crawler</RootNamespace>
-    <AssemblyName>TripRobot.Crawler</AssemblyName>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,21 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrawlController.cs" />
-    <Compile Include="Etity\UrlInfo.cs" />
-    <Compile Include="Infrastructure\BloomFilter.cs" />
-    <Compile Include="Infrastructure\Md5CreateHelper.cs" />
-    <Compile Include="Interface\IConfigGeter.cs" />
-    <Compile Include="Interface\ITodoQueue.cs" />
-    <Compile Include="Interface\IVisitedQueue.cs" />
-    <Compile Include="PeestWorkQueue.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharedSource\Perst4.NET\Perst.NET.csproj">
-      <Project>{1ff2e6ae-b540-4ea9-bd18-5f077ee61291}</Project>
-      <Name>Perst.NET</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

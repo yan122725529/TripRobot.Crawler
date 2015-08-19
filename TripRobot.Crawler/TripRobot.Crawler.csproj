@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BloomVisitedQueue.cs" />
     <Compile Include="CrawlController.cs" />
     <Compile Include="Etity\UrlInfo.cs" />
     <Compile Include="Infrastructure\BloomFilter.cs" />

@@ -17,5 +17,6 @@ namespace TripRobot.Crawler.Interface
         /// <returns></returns>
         bool Contains();
 
+        void Add();
     }
 }

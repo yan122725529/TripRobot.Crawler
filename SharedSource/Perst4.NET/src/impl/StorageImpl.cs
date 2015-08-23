@@ -5439,7 +5439,7 @@ namespace Perst.Impl
 
         internal ClassDescriptor findClassDescriptor(int oid)
         {
-            return (ClassDescriptor)lookupObject(oid, typeof(ClassDescriptor));
+            return (ClassDescriptor)lookupObject(oid, typeof(ClassDescriptor)) ;
 
         }
 

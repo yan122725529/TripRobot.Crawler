@@ -15,8 +15,8 @@ namespace TripRobot.Crawler.Interface
         /// URL 是否存在
         /// </summary>
         /// <returns></returns>
-        bool Contains();
+        bool Contains(string key);
 
-        void Add();
+        void Add(string key);
     }
 }

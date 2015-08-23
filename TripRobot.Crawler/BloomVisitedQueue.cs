@@ -6,19 +6,21 @@ namespace TripRobot.Crawler
 {
     public class BloomVisitedQueue: IVisitedQueue
     {
+        private BloomFilter<string> Filter;
         public BloomVisitedQueue()
         {
-            var filter=new BloomFilter<UrlInfo>(100000);
+             Filter= new BloomFilter<string>(200000);
         }
 
-        public bool Contains()
+
+        public bool Contains(string key)
         {
-            
+           return Filter.Contains(key);
         }
 
-        public void Add()
+        public void Add(string key)
         {
-            throw new System.NotImplementedException();
+            Filter.Add(key);
         }
     }
 }

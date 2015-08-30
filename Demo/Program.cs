@@ -12,10 +12,8 @@ namespace Demo
         static void Main(string[] args)
         {
             var a=new CrawlController();
-            //a.testAdd();
-            //a.getinfo();
-            //a.getinfo();
-            a.TestBoolm();
+         
+            a.Start();
             Console.ReadKey();
         }
     }
